@@ -1,0 +1,93 @@
+@alias {
+	bg-img: background-image;
+	bg-color: background-color;
+	bg-pos: background-position;
+	bg-size: background-size;
+
+	down: column;
+	up: column-reverse;
+	back: row-reverse;
+	spread: space-around;
+	push: space-between;
+	start: flex-start;
+	end: flex-end;
+}
+
+
+size: ?width ?height {
+	width: ?width;
+	height: ?height;
+}
+size: ?size {
+	width: ?size;
+	height: ?size;
+}
+
+typeface: ?family ?size ?color {
+	font-family: ?family;
+	font-size: ?size;
+	color: ?color;
+}
+typeface: ?family ?size {
+	font-family: ?family;
+	font-size: ?size;
+}
+
+flexbox: ?direction ?wrap ?justify ?align ?content {
+	display: flex;
+	flex-direction: ?direction;
+	flex-wrap: ?wrap;
+	justify-content: ?justify;
+	align-items: ?align;
+	align-content: ?content;
+}
+flexbox: ?wrap ?justify ?align ?content {
+	display: flex;
+	flex-wrap: ?wrap;
+	justify-content: ?justify;
+	align-items: ?align;
+	align-content: ?content;
+}
+flexbox: ?direction ?justify ?align {
+	display: flex;
+	flex-direction: ?direction;
+	justify-content: ?justify;
+	align-items: ?align;
+}
+flexbox: ?justify ?align {
+	display: flex;
+	justify-content: ?justify;
+	align-items: ?align;
+}
+flexbox: ?justify {
+	display: flex;
+	justify-content: ?justify;
+	align-items: center;
+}
+
+ease: ?prop ?duration ?delay {
+	transition: ?prop ?duration easing ?delay;
+}
+ease: ?prop ?duration {
+	transition: ?prop ?duration easing;
+}
+ease: ?duration {
+	transition: all ?duration easing;
+}
+
+bg-cover: ?url {
+	background-image: ?url;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+colors: ?text ?bg ?border {
+	color: ?text;
+	background-color: ?bg;
+	border-color: ?border;
+}
+colors: ?text ?bg {
+	color: ?text;
+	background-color: ?bg;
+}

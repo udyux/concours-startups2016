@@ -1,0 +1,37 @@
+/* Helpers
+--------------------------------------*/
+.flex-br {
+	display: inline-block;
+	size: 100% 0;
+	visibilit: hidden;
+}
+
+.icon {
+	display: inline-block;
+	svg {size: 100%}
+}
+
+ins.lg,
+ins.md,
+ins.sm {display: none}
+
+ins.br::after,
+del.br::after {
+	content: '\A';
+	white-space: pre-wrap;
+}
+
+@media (--lg) {
+	del.lg {display: none}
+	ins.lg {display: inline}
+}
+
+@media (--md) {
+	del.md {display: none}
+	ins.md {display: inline}
+}
+
+@media (--sm) {
+	del.sm {display: none}
+	ins.sm {display: inline}
+}
