@@ -11,6 +11,7 @@
 
 html {
 	box-sizing: border-box;
+	height: 100%;
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
@@ -95,13 +96,6 @@ blockquote {
 	-webkit-margin-after: 0;
 	-webkit-margin-start: 0;
 	-webkit-margin-end: 0;
-}
-
-q {
-	quotes: "" "";
-
-	&:before,
-	&:after {content: ""}
 }
 
 ins,
@@ -201,11 +195,15 @@ textarea {
 	color: inherit;
 	font: inherit;
 	appearance: none;
+}
 
-	&::moz-focus-inner {
-		padding: 0;
-		border: none;
-	}
+button::moz-focus-inner,
+input::moz-focus-inner,
+optgroup::moz-focus-inner,
+select::moz-focus-inner,
+textarea::moz-focus-inner {
+	padding: 0;
+	border: none;
 }
 
 button,

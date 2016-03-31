@@ -1,17 +1,15 @@
 @colors {
-	white: #fff;
-	grey: #7a7a7a;
-	blue: #51b5c8;
-	lightblue: #67dbdf;
-	darkblue: #2d5a77;
-	sunglo: #e2706a;
-	coral: #c47e7d;
+	white: 		#fff;
+	grey: 		#302f36;
+	blue: 		#04e0e2;
+	darkblue: #0098b0;
+	error: 		#ff5871;
 }
 
 @type {
-	thin: 				'TitilliumWeb-Thin';
-	base: 				'TitilliumWeb-Light';
-	full: 				'TitilliumWeb-Regular';
+	thin: 'TitilliumWeb-Thin';
+	base: 'TitilliumWeb-Light';
+	full: 'TitilliumWeb-Bold';
 }
 
 @transition {easing: cubic-bezier(.4,.25,.3,1)}
@@ -20,21 +18,15 @@
 @custom-media --md (max-width:775px);
 @custom-media --sm (max-width:425px);
 
-/* Global
---------------------------------------*/
+/* global
+----------*/
 body {
-	typeface: base 16px;
-	colors: black white;
+	typeface: thin 18px;
+	colors: darkblue grey;
+	overflow: hidden;
 }
 
-p {
-	margin-bottom: 1.5em;
-	line-height: 1.25;
-}
-
-h1 {typeface: deco 72px accent}
-h2 {typeface: full 42px}
-h3 {typeface: base 36px}
-h4 {typeface: thin 30px}
-h5 {typeface: base 24px}
-h6 {typeface: full 18px}
+h1 {typeface: full 34px blue}
+h2 {typeface: base 30px darkblue}
+h3 {typeface: full 28px darkblue}
+h4 {typeface: thin 26px blue}

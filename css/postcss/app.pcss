@@ -1,0 +1,314 @@
+/* the app
+-----------*/
+#app {
+	size: 100%;
+	absolute: top left;
+	perspective: 150vw;
+}
+
+
+/* the pull space
+------------------*/
+#pull {
+	ease: 300ms;
+	size: 100%;
+	absolute: top left;
+	transform-style: preserve-3d;
+}
+
+
+/* the box
+-----------*/
+#box {
+	ease: all 1100ms 150ms;
+	size: 100%;
+	absolute: top left;
+	transform-style: preserve-3d;
+}
+
+
+/* the spin
+------------*/
+#app {
+	&[:view='intro'] #box {transform: translateZ(-50vw) rotateY(0deg)}
+	&[:view='demo'] #box {transform: translateZ(-50vw) rotateY(-90deg)}
+	&[:view='email'] #box {transform: translateZ(-50vw) rotateY(-180deg)}
+	&[:view='form'] #box {transform: translateZ(-50vw) rotateY(-270deg)}
+}
+
+
+/* the sides
+-------------*/
+section {
+	size: 100%;
+	padding: 0 15px;
+	flexbox: down spread center;
+	absolute: top left;
+	text-align: center;
+	backface-visibility: hidden;
+	/* front */
+	&#intro {transform: translateZ(50vw) rotateY(0deg)}
+	/* right */
+	&#demo {transform: translateX(50vw) rotateY(90deg)}
+	/* back */
+	&#email {transform: translateZ(-50vw) rotateY(180deg)}
+	/* left */
+	&#form {transform:  translateX(-50vw) rotateY(270deg)}
+}
+
+
+/* intro
+-------------*/
+#intro {
+	colors: darkblue white;
+
+	header,
+	article {
+		ease: 650ms;
+		size: 100%;
+		flexbox: down spread center;
+		absolute: top left;
+		overflow: hidden;
+	}
+
+	header[:state='done'] {
+		opacity: 0;
+		transform: scale(.5);
+	}
+
+	article {
+		opacity: 0;
+		pointer-events: none;
+		transform: scale(1.5);
+		&[:state='visible'] {
+			transition-delay: 600ms;
+			opacity: 1;
+			pointer-events: auto;
+			transform: scale(1);
+		}
+	}
+
+	svg {
+		width: 200px;
+		fill: blue;
+	}
+
+	p {
+		ease: 450ms;
+		opacity: 0;
+		transform: scale(1.5);
+		&:first-of-type,
+		&[:state='visible'] {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		&[:state='done'] {
+			transform: scale(.5);
+			filter: blur(2px);
+		}
+	}
+
+	h2 {text-transform: uppercase}
+	button {@extend %buttonBlue}
+}
+
+/* email
+-------------*/
+#email {
+	colors: darkblue white;
+
+	button {@extend %buttonBlue}
+
+	fieldset {
+		display: inline-block;
+		border: 1px solid blue;
+		border-radius: 3px;
+		box-shadow: 0px 4px 4px -3px grey.8;
+		overflow: hidden;
+		z-index: 0;
+
+		input {
+			ease: all 250ms 50ms;
+			display: block;
+			size: 290px 35px;
+			margin-top: 5px;
+			typeface: base 22px;
+			colors: darkblue white;
+			z-index: 1;
+
+			+label {
+				ease: all 250ms 50ms;
+				display: inline-block;
+				width: 100%;
+				line-height: 40px;
+				absolute: top left;
+				typeface: thin 22px;
+				colors: white blue;
+				user-select: none;
+				white-space: nowrap;
+				text-transform: uppercase;
+				z-index: 3;
+
+				+span {
+					ease: all 250ms 50ms;
+					absolute: top 45% left 100%;
+					transform: translateX(-200%);
+					typeface: full 28px error.75;
+					user-select: none;
+					z-index: 2;
+				}
+			}
+
+			&:focus,
+			&:valid {
+				margin-top: 25px;
+
+				+label {
+					line-height: 25px;
+					font-size: 18px;
+					box-shadow: 0px 4px 4px -3px grey.8;
+				}
+			}
+		}
+	}
+}
+
+/* demo/form
+-------------*/
+#demo,
+#form {
+	hgroup {
+		size: 100% 55px;
+		absolute: top left;
+		padding: 10px 0;
+		bg-color: white;
+
+		span,
+		output {typeface: base 26px blue}
+	}
+
+	div[role='group'] {
+		flexbox: wrap push center center;
+
+		h3 {
+			width: 100%;
+			margin-bottom: .75em;
+		}
+
+		p,
+		output {typeface: thin 28px}
+		span {typeface: full 32px}
+	}
+
+	footer {
+		size: 100% 55px;
+		absolute: bottom left;
+		flexbox: center center;
+
+		label {
+			display: inline-block;
+			flex: 1;
+			line-height: 55px;
+			colors: blue white;
+			&:last-child {border-left: 1px solid blue}
+		}
+	}
+}
+
+#demo {colors: white blue}
+
+#form {
+	perspective: 100vw;
+	bg-color: white;
+
+	form {
+		ease: 1100ms;
+		size: 100%;
+		padding: 55px 0;
+		absolute: top left;
+		transform-style: preserve-3d;
+		transform-origin: 25% 50%;
+
+		.category {
+			size: 100%;
+			absolute: top left;
+			flexbox: down spread center;
+			backface-visibility: hidden;
+			colors: white blue;
+			&#int {transform: rotateY(0deg)}
+			&#can {transform: rotateY(180deg)}
+		}
+	}
+
+	input[type='radio'] {display: none}
+	input[name='flip'] {
+		+footer label {
+			&::after {
+				content: '';
+				ease: 250ms;
+				size: 55px 3px;
+				absolute: top 80% left 50%;
+				transform: translateX(-50%);
+				bg-color: blue;
+				border-radius: 3px;
+				opacity: 0;
+			}
+
+			&:last-of-type::after {opacity: 1}
+		}
+
+		&:checked {
+			+form {transform: rotateY(180deg) translateX(-50%)}
+			+footer label {
+				&:first-of-type::after {opacity: 1}
+				&:last-of-type::after {opacity: 0}
+			}
+		}
+	}
+}
+
+
+/* the spinner
+---------------*/
+#spinner {
+	ease: opacity 425ms 1100ms;
+	size: 100%;
+	absolute: top left -100vw;
+	bg-color: blue;
+	flexbox: center center;
+	opacity: 0;
+	pointer-events: none;
+	perspective: 300px;
+
+	img {
+		width: 100px;
+		height: auto;
+		margin: 0 -10px;
+	}
+}
+
+#app[data-view='loading'] #spinner {
+	ease: opacity 425ms;
+	left: 0;
+	opacity: 1;
+	pointer-events: auto;
+
+	img {
+		&:first-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) infinite}
+		&:nth-child(2) {animation: flip-reverse 1500ms cubic-bezier(.4,.25,.3,1) 400ms infinite}
+		&:last-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) 750ms infinite}
+	}
+}
+
+@keyframes flip {
+	0%		{transform: rotateY(0deg)}
+	75%	{transform: rotateY(360deg)}
+	100%	{transform: rotateY(360deg)}
+}
+
+@keyframes flip-reverse {
+	0%		{transform: rotateY(0deg)}
+	75%	{transform: rotateY(-360deg)}
+	100%	{transform: rotateY(-360deg)}
+}

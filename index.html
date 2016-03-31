@@ -13,115 +13,144 @@
 	<meta property="og:site_name" content="Concours STARTUPS | WAQ 2016"/>
 	<meta property="og:image" content="http://startups.webaquebec.org/assets/waq_bdc.png"/>
 	<!-- stylesheet -->
-	<link href="css/all.css" rel="stylesheet"/>
+	<link href="css/reset.css" rel="stylesheet"/>
+	<link href="css/app.css" rel="stylesheet"/>
 	<link rel="shortcut icon" href="favicon.ico"/>
 </head>
 
 <body>
+<!-- the app container -->
+	<main id="app" role="application" data-view="loading">
+	<!-- the pull -->
+		<div id="pull">
+		<!-- the box - each section is a side -->
+			<div id="box">
+			<!-- intro -->
+				<section id="intro">
+					<header id="intro-header">
+						<hgroup>
+							<h1>concours startups</h1>
+							<svg class="icon"><use xlink:href="assets/icons.svg#waq"></use></svg>
+						</hgroup>
 
-<!-- app container -->
-	<main id="app" data-view="loading">
-	<!-- landing -->
-		<section id="landing">
-			<header>
-				<svg class="icon"><use xlink:href="assets/icons.svg#waq"></use></svg>
-				<h1>concours des<br/>startups</h1>
-				<svg class="icon"><use xlink:href="assets/icons.svg#bdc"></use></svg>
-			</header>
+						<div>
+							<p>présenté par</p>
+							<svg class="icon"><use xlink:href="assets/icons.svg#bdc"></use></svg>
+						</div>
+						<button id="start">lancer</button>
+					</header>
 
-			<h2>investissez</h2>
-			<p>Dans le but de nous aider à nommer les gagnants du concours des startups du WAQ 2016, assumez le rôle d'investisseur et décidez qui mérite votre argent.</p>
-			<p>Suite à l'écoute des pitchs de nous participants, vous avez un budget de 2 000 000$ que vous pourrez investir (ou pas) pour démontrer votre support.</p>
-			<p>Le concours est divisé en deux catégories - Startups Canadiens &amp; Startups Internationaux.</p>
-			<hr/>
-			<p>Comment ça fonctionne:</p>
+					<article id="intro-items">
+						<h2>investissez</h2>
+						<p>Dans l'objectif de nous aider à nommer les gagnants du Concours Startups du WAQ 2016, assumez le rôle d'investisseur. Qui mérite votre argent?</p>
+						<p>Suite à l'écoute des pitchs de nos participants, vous devez "investir" (ou pas) pour démontrer votre support.</p>
+						<p>Le concours est divisé en deux catégories:<br/><em>Startups Canadiens</em> et <em>Startups Internationaux</em></p>
+						<button id="next">ok</button>
+					</article>
+				</section>
 
-			<ul>
-				<li>Vous pouvez investir un maximum de 1 000 000$ par catégorie</li>
-				<li>Vous pouvez investir 0$</li>
-				<li>Si vous décidez d'investir chez un startup, le montant minimum est de 100 000$ et le maximum est de 500 000$</li>
-				<li>Pour investir, utilisez les boutons "-" et "+" qui se trouvent en dessous du nom de la startup en question.</li>
-			</ul>
-		</section>
-	<!-- email -->
-		<section id="email">
-			<form>
-				<div class="row">
-					<fieldset><input class="export" type="email" id="email" required/><label>courriel</label></fieldset>
+			<!-- demo -->
+				<section id="demo">
+					<hgroup class="demo">
+						<h4>il vous reste</h4>
+						<span>550,000$</span>
+					</hgroup>
+
+					<div role="group">
+						<h3>Swipe City</h3>
+						<span>-</span>
+						<p>450,000$</p>
+						<span>+</span>
+					</div>
+
+					<footer>
+						<label>international</label>
+						<label>canadien</label>
+					</footer>
+				</section>
+
+			<!-- email -->
+				<section id="email">
+					<fieldset>
+						<input type="email" name="email" id="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" required/>
+						<label for="email">email</label><span id="clear">&times;</span>
+					</fieldset>
 					<button id="submit-email">continuer</button>
-				</div>
-			</form>
-		</section>
-	<!-- main -->
-		<section id="main">
-			<input type="radio" name="flip" id="_can"/>
-			<form>
-			<!-- international startups -->
-				<div class="category" id="int">
-					<header>
-						<h3>il vous reste</h3>
-						<output id="int-bank"></output>
-					</header>
+				</section>
 
-					<div role="group">
-						<h5 class="startup">Startup 1</h5>
-						<span class="less"></span>
-						<output class="invested"></output>
-						<span class="more"></span>
-					</div>
+			<!-- form -->
+				<section id="form">
+					<input type="radio" name="flip" id="_int" checked/>
+					<footer>
+						<label for="_int">international</label>
+						<label for="_can">canadien</label>
+					</footer>
 
-					<div role="group">
-						<h5 class="startup">Startup 2</h5>
-						<span class="less"></span>
-						<output></output>
-						<span class="more"></span>
-					</div>
+					<input type="radio" name="flip" id="_can"/>
+					<form>
+					<!-- international startups -->
+						<div class="category" id="int">
+							<hgroup>
+								<h4>il vous reste</h4>
+								<output id="int-bank"></output>
+							</hgroup>
 
-					<div role="group">
-						<h5 class="startup">Startup 3</h5>
-						<span class="less"></span>
-						<output></output>
-						<span class="more"></span>
-					</div>
-				</div>
-			<!-- canadian startups -->
-				<div class="category" id="can">
-					<header>
-						<h3>il vous reste</h3>
-						<output id="can-bank"></output>
-					</header>
+							<div role="group">
+								<h3 class="startup">Startup 1</h3>
+								<span class="less">-</span>
+								<output data-index="1"></output>
+								<span class="more">+</span>
+							</div>
 
-					<div role="group">
-						<h5 class="startup">Startup 1</h5>
-						<span class="less"></span>
-						<output></output>
-						<span class="more"></span>
-					</div>
+							<div role="group">
+								<h3 class="startup">Startup 2</h3>
+								<span class="less">-</span>
+								<output data-index="2"></output>
+								<span class="more">+</span>
+							</div>
 
-					<div role="group">
-						<h5 class="startup">Startup 2</h5>
-						<span class="less"></span>
-						<output></output>
-						<span class="more"></span>
-					</div>
+							<div role="group">
+								<h3 class="startup">Startup 3</h3>
+								<span class="less">-</span>
+								<output data-index="3"></output>
+								<span class="more">+</span>
+							</div>
+						</div>
+					<!-- canadian startups -->
+						<div class="category" id="can">
+							<hgroup>
+								<h4>il vous reste</h4>
+								<output id="can-bank"></output>
+							</hgroup>
 
-					<div role="group">
-						<h5 class="startup">Startup 3</h5>
-						<span class="less"></span>
-						<output></output>
-						<span class="more"></span>
-					</div>
-				</div>
-			</form>
+							<div role="group">
+								<h3 class="startup">Startup 1</h3>
+								<span class="less">-</span>
+								<output data-index="1"></output>
+								<span class="more">+</span>
+							</div>
 
-			<footer>
-				<input type="radio" name="category" id="_int" checked/>
-				<label for="_int">international</label>
-				<label for="_can">canadien</label>
-			</footer>
-		</section>
+							<div role="group">
+								<h3 class="startup">Startup 2</h3>
+								<span class="less">-</span>
+								<output data-index="2"></output>
+								<span class="more">+</span>
+							</div>
+
+							<div role="group">
+								<h3 class="startup">Startup 3</h3>
+								<span class="less">-</span>
+								<output data-index="3"></output>
+								<span class="more">+</span>
+							</div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+
 	<!-- loader -->
-		<div id="loader">
+		<div id="spinner">
 			<img src="assets/w.svg"/>
 			<img src="assets/a.svg"/>
 			<img src="assets/q.svg"/>

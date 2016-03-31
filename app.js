@@ -1,15 +1,14 @@
-/** app.js -----------------------------
+/** app.js -----------------------------------------------------
  * @file 			WAQ 2016 Startups Contest App Scripts
  *						https://github.com/webaquebec/concours-startups
- *
  * @author 		Nicolas Udy
  * 						http://udy.io
- *
  * @license 	MIT License
  *						https://tldrlegal.com/license/mit-license
- *
  * @copyright WAQ 2016
---------------------------------------*/
+--------------------------------------------------------------*/
+
+
 (function app() {
 	'use strict';
 
@@ -18,7 +17,7 @@
 
 
 	/* manage session
-	--------------------------------------*/
+	------------------*/
 	var session = {
 
 		/* check if a session has already been set */
@@ -53,7 +52,7 @@
 			update.output(intOutput,state.int);
 			update.output(canOutput,state.can);
 
-			update.view('landing');
+			update.view('intro');
 		},
 
 		/* save session state object (as JSON) to localStorage */
@@ -64,34 +63,163 @@
 
 
 	/* update pages, state and views
-	--------------------------------------*/
+	---------------------------------*/
 	var update = {
 
 		/* roll in new view */
 		view: function(view) {
+			var pull = document.getElementById('pull');
 			app.dataset.view = view;
 			update.state('view',view);
+
+			pull.style.transform = 'translateZ(-40vw)';
+			setTimeout(function() {
+				pull.style.transform = '';
+			},1100);
 		},
 
 		/* update state object */
 		state: function(key,val) {
-			// check if key is a nested object
 			state[key] = val;
 			session.save();
 		},
 
 		/* update view output with new value */
 		output: function(nodes,val) {
-			for (var i = 0; i < nodes.length; i++) {
-				nodes[i].value = val[i];
+			for (var i = 0; i < nodes.length; i++) nodes[i].value = val[i];
+		}
+	};
+
+
+	/* user interface event handlers
+	---------------------------------*/
+	var handlers = {
+
+		/* start intro */
+		startBtn: function() {
+			document.getElementById('intro-header')
+			.dataset.state = 'done';
+
+			document.getElementById('intro-items')
+			.dataset.state = 'visible';
+		},
+
+		/* control intro item flow */
+		intro: function() {
+			var items = document.getElementById('intro-items');
+			var p = items.querySelectorAll('p');
+
+			if (!this.item) this.item = 1;
+
+			if (this.item < p.length) p[this.item].dataset.state = 'visible';
+			else update.view('demo');
+
+			p[this.item-1].dataset.state = 'done';
+			this.item++;
+		},
+
+		/* validate email */
+		validateEmail: function() {
+			if (! /[^\s@]+@[^\s@]+\.[^\s@]+/.test(this.value) ) {
+				update.view('form');
+				update.state('email',this.value);
+			} else {
+				document.getElementById('email-error')
+				.dataset.state = 'error';
 			}
+		},
+
+		/* decrease the value of the related output */
+		lessInvestment: function() {
+			var output = this.nextElementSibling;
+			var currentVal = util.parseVal(output.value);
+
+			var category = util.getParentCategory(this);
+			var bank = document.getElementById(category + '-bank');
+			var currentBank = util.parseVal(bank.value);
+			var changed = false;
+
+			// min 0 to 100k, increment by 50k after
+			if (currentVal === 100000) {
+				output.value = '0$';
+				bank.value = util.formatVal(currentBank+100000) + '$';
+				changed = true;
+			} else if (currentVal >= 100000) {
+				output.value = util.formatVal(currentVal-50000) + '$';
+				bank.value = util.formatVal(currentBank+50000) + '$';
+				changed = true;
+			}
+
+			// update state if change occurred
+			if (changed) {
+				var index = output.dataset.index;
+				var stateMirror = state[category];
+
+				stateMirror[0] = bank.value;
+				stateMirror[index] = output.value;
+				update.state(category,stateMirror);
+			}
+		},
+
+		/* increase the value of the related output */
+		moreInvestment: function() {
+			var output = this.previousElementSibling;
+			var currentVal = util.parseVal(output.value);
+
+			var category = util.getParentCategory(this);
+			var bank = document.getElementById(category + '-bank');
+			var currentBank = util.parseVal(bank.value);
+			var changed = false;
+
+			// min 100k, max 500k, increment by 50k
+			if (currentVal === 0 && currentBank >= 100000) {
+				output.value = util.formatVal(currentVal+100000) + '$';
+				bank.value = util.formatVal(currentBank-100000) + '$';
+				changed = true;
+			} else if (currentVal >= 100000 && currentVal <= 500000 && currentBank >= 50000) {
+				output.value = util.formatVal(currentVal+50000) + '$';
+				bank.value = util.formatVal(currentBank-50000) + '$';
+				changed = true;
+			}
+
+			// update state if change occurred
+			if (changed) {
+				var index = output.dataset.index;
+				var stateMirror = state[category];
+
+				stateMirror[0] = bank.value;
+				stateMirror[index] = output.value;
+				update.state(category,stateMirror);
+			}
+		},
+
+		/* AJAX entry data to google sheet */
+		sendEntry: function() {
+			var entryData = util.buildEntryData();
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', 'action url here', true);
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+			xhr.send(entryData);
 		}
 	};
 
 
 	/* utility functions
-	--------------------------------------*/
+	---------------------*/
 	var util = {
+
+		/* prevent default */
+		stopIt: function(e) {
+			e.preventDefault();
+		},
+
+		/* return parent .category node's id */
+		getParentCategory: function(node) {
+			while (!node.parentElement.classList.contains('category')) {
+				node = node.parentElement;
+			}
+			return node.parentElement.id;
+		},
 
 		/* return formatted number with commas */
 		formatVal: function(int) {
@@ -103,97 +231,58 @@
 			return parseInt(str.split(',').join(''));
 		},
 
-		/* return parent .category node's id */
-		getParentCategory: function(node) {
-			while (!node.parentElement.classList.contains('category')) {
-				node = node.parentElement;
+		/* build entry data for AJAX */
+		buildEntryData: function() {
+			var i = 0;
+			var entryData = '';
+			var entry = document.querySelectorAll('[data-entry]');
+			while (i < entry.length) {
+				var prefix = (!i) ? '' : '&';
+				var entryName = entry[i].dataset.entry;
+				var entryValue = entry[i].value;
+				entryData += prefix + entryName + '=' + entryValue;
+				i++;
 			}
-			return node.parentElement.id;
+
+			return entryData;
 		}
 	};
 
 
 	/* app setup, listeners and handlers
-	--------------------------------------*/
+	-------------------------------------*/
 	(function setup() {
 
-		/* decrease the value of the related output */
-		var decreaseInvestment = function() {
-			var output = this.nextElementSibling;
-			var currentVal = util.parseVal(output.value);
+		// prevent default behavior for on page anchors and form submits
+		[].forEach.call(document.querySelectorAll('form button, a[href^="#"]'), function(node) {
+			node.addEventListener('click',util.stopIt);
+		});
 
-			var category = util.getParentCategory(this) + '-bank';
-			var bank = document.getElementById(category);
-			var currentBank = util.parseVal(bank.value);
+		// start button
+		document.getElementById('start')
+		.addEventListener('click',handlers.startBtn);
 
-			// min 100k, increment by 50k
-			if (currentVal === 100000) {
-				output.value = '0$';
-				bank.value = util.formatVal(currentBank+100000) + '$';
-			} else if (currentVal > 100000) {
-				output.value = util.formatVal(currentVal-50000) + '$';
-				bank.value = util.formatVal(currentBank+50000) + '$';
-			}
-		};
+		// next button
+		document.getElementById('next')
+		.addEventListener('click',handlers.intro);
 
-		/* increase the value of the related output */
-		var increaseInvestment = function() {
-			var output = this.previousElementSibling;
-			var currentVal = util.parseVal(output.value);
-
-			var category = util.getParentCategory(this) + '-bank';
-			var bank = document.getElementById(category);
-			var currentBank = util.parseVal(bank.value);
-
-			// min 100k, max 500k, increment by 50k
-			if (currentVal === 0) {
-				output.value = util.formatVal(currentVal+100000) + '$';
-				bank.value = util.formatVal(currentBank-100000) + '$';
-			} else if (currentVal => 100000 && currentVal <= 500000) {
-				output.value = util.formatVal(currentVal+50000) + '$';
-				bank.value = util.formatVal(currentBank-50000) + '$';
-			}
-		};
+		// validate email
+		document.getElementById('submit-email')
+		.addEventListener('click',handlers.validateEmail);
 
 		// attach handlers to less/more buttons
 		[].forEach.call(document.querySelectorAll('.less'), function(node) {
-			node.addEventListener('click',decreaseInvestment);
+			node.addEventListener('click',handlers.lessInvestment);
 		});
 
 		[].forEach.call(document.querySelectorAll('.more'), function(node) {
-			node.addEventListener('click',increaseInvestment);
+			node.addEventListener('click',handlers.moreInvestment);
 		});
 
-		/*------------------------------------*/
+		// check if there's a session to restore
+		if (session.exists()) session.restore();
+		else session.init();
 
-		// prevent default behavior for on page anchors and form submits
-		var stopIt = function(e) {
-			e.preventDefault();
-		};
-
-		[].forEach.call(document.querySelectorAll('form button, a[href^="#"]'), function(node) {
-			node.addEventListener('click',stopIt);
-		});
-
-		// add event listeners to nav/submit buttons
-		document.getElementById('launch')
-		.addEventListener('click', function() {
-			update.view('email');
-		});
-
-		document.getElementById('submit-email')
-		.addEventListener('click', function() {
-			if (! /[^\s@]+@[^\s@]+\.[^\s@]+/.test(this.value) ) {
-				update.view('main');
-				update.state('email',this.value);
-			} else {
-				return false;
-			}
-		});
 	})();
-
-	// check if there's a session to restore
-	if (session.exists()) session.restore();
-	else session.init();
 
 })();
