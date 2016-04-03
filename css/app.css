@@ -37,19 +37,19 @@ body {
 	overflow: hidden;
 	background-color: #302f36;
 	color: #0098b0;
-	font-family: 'TitilliumWeb-Thin';
+	font-family: 'TitilliumWeb-Light';
 	font-size: 1.125rem;
 }
 
-h1 {color: #04e0e2;font-family: 'TitilliumWeb-Bold';font-size: 2.125rem}
+h1 {font-family: 'TitilliumWeb-Bold';font-size: 2.125rem}
 
-h2 {color: #0098b0;font-family: 'TitilliumWeb-Light';font-size: 1.875rem}
+h2 {font-family: 'TitilliumWeb-Light';font-size: 1.875rem}
 
-h3 {color: #0098b0;font-family: 'TitilliumWeb-Bold';font-size: 1.75rem}
+h3 {color: #0098b0;font-family: 'TitilliumWeb-Bold';font-size: 1.375rem}
 
-h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.625rem}
+h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
 
-button {
+#intro button, #email button, #demo-btn {
 	padding: .75rem 2.5rem;
 	font-family: 'TitilliumWeb-Light';
 	font-size: 1.375rem;
@@ -57,7 +57,7 @@ button {
 	z-index: 0;
 }
 
-button::after {
+#intro button::after, #email button::after, #demo-btn::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -73,7 +73,7 @@ button::after {
   z-index: -1;
 }
 
-button:active::after {
+#intro button:active::after, #email button:active::after, #demo-btn:active::after {
   -webkit-transform: translate(-50%,-50%) scale(.85);
           transform: translate(-50%,-50%) scale(.85);
   box-shadow: none;
@@ -81,11 +81,19 @@ button:active::after {
   transition: none;
 }
 
-button {
+#demo-btn {
+	color: #04e0e2;
+}
+
+#demo-btn::after {
+  background-color: #fff
+}
+
+#intro button, #email button {
 	color: #fff;
 }
 
-button::after {
+#intro button::after, #email button::after {
   background-color: #04e0e2
 }
 
@@ -98,8 +106,8 @@ button::after {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	-webkit-perspective: 150vw;
-	        perspective: 150vw;
+	-webkit-perspective: 100vh;
+	        perspective: 100vh;
 }
 
 /* the pull space
@@ -277,6 +285,7 @@ section#form {
 }
 
 #intro p {
+  padding: 0 4vw;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   opacity: 0;
@@ -291,10 +300,15 @@ section#form {
 }
 
 #intro p[data-state='done'] {
-  -webkit-transform: scale(.5);
-          transform: scale(.5);
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
+  -webkit-transform: scale(.8);
+          transform: scale(.8);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  opacity: 1;
+}
+
+#intro p em {
+  font-family: 'TitilliumWeb-Bold'
 }
 
 #intro h2 {
@@ -314,7 +328,7 @@ section#form {
   overflow: hidden;
   border: 1px solid #04e0e2;
   border-radius: 3px;
-  box-shadow: 0px 4px 4px -3px rgba(48, 47, 54, 0.8);
+  box-shadow: 0px 4px 4px -3px rgba(48, 47, 54, 0.3);
   z-index: 0;
 }
 
@@ -323,10 +337,12 @@ section#form {
   width: 290px;
   height: 35px;
   margin-top: 5px;
+  padding: 0 1em;
   background-color: #fff;
   color: #0098b0;
   font-family: 'TitilliumWeb-Light';
-  font-size: 1.375rem;
+  font-size: 1.25rem;
+  text-align: center;
   -webkit-transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   z-index: 1;
@@ -342,8 +358,8 @@ section#form {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #04e0e2;
-  color: #fff;
+  background-color: #fff;
+  color: #04e0e2;
   font-family: 'TitilliumWeb-Thin';
   font-size: 1.375rem;
   line-height: 2.5rem;
@@ -354,32 +370,15 @@ section#form {
   z-index: 3;
 }
 
-#email fieldset input +label +span {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  position: absolute;
-  top: 45%;
-  left: 100%;
-  -webkit-transform: translateX(-200%);
-          transform: translateX(-200%);
-  color: rgba(255, 88, 113, 0.75);
-  font-family: 'TitilliumWeb-Bold';
-  font-size: 1.75rem;
-  -webkit-transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
-  transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
-  z-index: 2;
-}
-
 #email fieldset input:focus, #email fieldset input:valid {
   margin-top: 25px;
 }
 
 #email fieldset input:focus +label, #email fieldset input:valid +label {
+  background-color: #04e0e2;
+  color: #fff;
   font-size: 1.125rem;
   line-height: 1.5625rem;
-  box-shadow: 0px 4px 4px -3px rgba(48, 47, 54, 0.8);
 }
 
 /* demo/form
@@ -390,7 +389,7 @@ section#form {
   top: 0;
   left: 0;
   width: 100%;
-  height: 55px;
+  height: 95px;
   padding: 10px 0;
   background-color: #fff;
 }
@@ -420,21 +419,35 @@ section#form {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 250px;
+  margin: 15px 0;
 }
 
 #demo div[role='group'] h3, #form div[role='group'] h3 {
-  width: 100%;
-  margin-bottom: .75em;
+  width: 100%
 }
 
 #demo div[role='group'] p, #demo div[role='group'] output, #form div[role='group'] p, #form div[role='group'] output {
   font-family: 'TitilliumWeb-Thin';
-  font-size: 1.75rem
+  font-size: 1.5rem
 }
 
 #demo div[role='group'] span, #form div[role='group'] span {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-family: 'TitilliumWeb-Bold';
-  font-size: 2rem
+  font-size: 2.375rem;
+  line-height: 2.1875rem;
+}
+
+#demo hr, #form hr {
+  display: block;
+  width: 175px;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #fff;
 }
 
 #demo footer, #form footer {
@@ -455,6 +468,7 @@ section#form {
           justify-content: center;
   width: 100%;
   height: 55px;
+  border-top: 1px solid #04e0e2;
 }
 
 #demo footer label, #form footer label {
@@ -472,12 +486,92 @@ section#form {
   border-left: 1px solid #04e0e2
 }
 
-#demo {background-color: #04e0e2;color: #fff}
+/* demo */
+
+#demo {
+	background-color: #04e0e2;
+	color: #fff;
+}
+
+#demo #demo-btn {
+  position: absolute;
+  right: 10%;
+  bottom: 15%;
+}
+
+#demo #demo-overlay {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  padding: 40px 0 120px;
+  font-family: 'TitilliumWeb-Bold';
+  opacity: 0;
+  -webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3250ms;
+  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3250ms;
+}
+
+#demo #demo-overlay p:first-of-type {
+  margin-bottom: -1em
+}
+
+#demo .demo {
+  z-index: 0;
+}
+
+#demo .demo::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(48, 47, 54, 0.8);
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 2750ms;
+  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 2750ms;
+  z-index: 1;
+}
+
+#demo .demo >* {
+  z-index: 2
+}
+
+#demo .demo.underlay {
+  position: absolute;
+  top: 95px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 95px);
+}
+
+#app[data-view='demo'] .demo::after {opacity: 1}
+
+#app[data-view='demo'] #demo-overlay {opacity: 1}
+
+/* form */
 
 #form {
 	background-color: #fff;
-	-webkit-perspective: 100vw;
-	        perspective: 100vw;
+	-webkit-perspective: 100vh;
+	        perspective: 100vh;
 }
 
 #form form {
@@ -485,8 +579,7 @@ section#form {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  padding: 55px 0;
+  height: calc(100vh - 55px);
   -webkit-transform-origin: 25% 50%;
           transform-origin: 25% 50%;
   -webkit-transform-style: preserve-3d;
@@ -517,6 +610,7 @@ section#form {
           justify-content: space-around;
   width: 100%;
   height: 100%;
+  padding-top: 95px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   background-color: #04e0e2;
@@ -596,8 +690,10 @@ section#form {
 	-webkit-perspective: 300px;
 	        perspective: 300px;
 	pointer-events: none;
-	-webkit-transition: opacity 425ms cubic-bezier(.4,.25,.3,1) 1100ms;
-	transition: opacity 425ms cubic-bezier(.4,.25,.3,1) 1100ms;
+	-webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1),
+							left 0ms linear 450ms;
+	transition: opacity 450ms cubic-bezier(.4,.25,.3,1),
+							left 0ms linear 450ms;
 }
 
 #spinner img {
@@ -606,25 +702,23 @@ section#form {
   margin: 0 -10px;
 }
 
-#app[data-view='loading'] #spinner {
+#spinner[data-state='loading'] {
 	left: 0;
 	opacity: 1;
 	pointer-events: auto;
-	-webkit-transition: opacity 425ms cubic-bezier(.4,.25,.3,1);
-	transition: opacity 425ms cubic-bezier(.4,.25,.3,1);
 }
 
-#app[data-view='loading'] #spinner img:first-child {
+#spinner[data-animation='run'] img:first-child {
   -webkit-animation: flip 1500ms cubic-bezier(.4,.25,.3,1) infinite;
           animation: flip 1500ms cubic-bezier(.4,.25,.3,1) infinite
 }
 
-#app[data-view='loading'] #spinner img:nth-child(2) {
+#spinner[data-animation='run'] img:nth-child(2) {
   -webkit-animation: flip-reverse 1500ms cubic-bezier(.4,.25,.3,1) 400ms infinite;
           animation: flip-reverse 1500ms cubic-bezier(.4,.25,.3,1) 400ms infinite
 }
 
-#app[data-view='loading'] #spinner img:last-child {
+#spinner[data-animation='run'] img:last-child {
   -webkit-animation: flip 1500ms cubic-bezier(.4,.25,.3,1) 750ms infinite;
           animation: flip 1500ms cubic-bezier(.4,.25,.3,1) 750ms infinite
 }

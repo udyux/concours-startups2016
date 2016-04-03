@@ -20,7 +20,7 @@
 
 <body>
 <!-- the app container -->
-	<main id="app" role="application" data-view="loading">
+	<main id="app" role="application">
 	<!-- the pull -->
 		<div id="pull">
 		<!-- the box - each section is a side -->
@@ -29,22 +29,22 @@
 				<section id="intro">
 					<header id="intro-header">
 						<hgroup>
-							<h1>concours startups</h1>
 							<svg class="icon"><use xlink:href="assets/icons.svg#waq"></use></svg>
+							<h1>Concours Startups</h1>
 						</hgroup>
 
 						<div>
-							<p>présenté par</p>
+							<p>présenté par la</p>
 							<svg class="icon"><use xlink:href="assets/icons.svg#bdc"></use></svg>
 						</div>
 						<button id="start">lancer</button>
 					</header>
 
 					<article id="intro-items">
-						<h2>investissez</h2>
+						<h2>Investissez</h2>
 						<p>Dans l'objectif de nous aider à nommer les gagnants du Concours Startups du WAQ 2016, assumez le rôle d'investisseur. Qui mérite votre argent?</p>
 						<p>Suite à l'écoute des pitchs de nos participants, vous devez "investir" (ou pas) pour démontrer votre support.</p>
-						<p>Le concours est divisé en deux catégories:<br/><em>Startups Canadiens</em> et <em>Startups Internationaux</em></p>
+						<p>Le concours est divisé<br/>en deux catégories:<br/><em>Startups Canadiens<br/>Startups Internationaux</em></p>
 						<button id="next">ok</button>
 					</article>
 				</section>
@@ -55,7 +55,7 @@
 						<h4>il vous reste</h4>
 						<span>550,000$</span>
 					</hgroup>
-
+					<div class="underlay demo"></div>
 					<div role="group">
 						<h3>Swipe City</h3>
 						<span>-</span>
@@ -67,13 +67,19 @@
 						<label>international</label>
 						<label>canadien</label>
 					</footer>
+					<div id="demo-overlay">
+						<p>Vous trouverez ci-haut le solde restant du 1,000,000$ dont vous disposez.<br/><br/>Au centre, vous pouvez augmenter<br/>ou diminuer votre investissement.</p>
+						<p>Vous pouvez investir jusqu'à 500,000$ par startup.</p>
+						<button id="demo-btn">ok</button>
+					</div>
 				</section>
 
 			<!-- email -->
 				<section id="email">
+					<h3>Entrez votre courriel<br/>pour continuer</h3>
 					<fieldset>
-						<input type="email" name="email" id="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" required/>
-						<label for="email">email</label><span id="clear">&times;</span>
+						<input type="text" name="email" id="email-input" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" required/>
+						<label for="email-input">courriel</label>
 					</fieldset>
 					<button id="submit-email">continuer</button>
 				</section>
@@ -101,14 +107,14 @@
 								<output data-index="1"></output>
 								<span class="more">+</span>
 							</div>
-
+							<hr/>
 							<div role="group">
 								<h3 class="startup">Startup 2</h3>
 								<span class="less">-</span>
 								<output data-index="2"></output>
 								<span class="more">+</span>
 							</div>
-
+							<hr/>
 							<div role="group">
 								<h3 class="startup">Startup 3</h3>
 								<span class="less">-</span>
@@ -129,14 +135,14 @@
 								<output data-index="1"></output>
 								<span class="more">+</span>
 							</div>
-
+							<hr/>
 							<div role="group">
 								<h3 class="startup">Startup 2</h3>
 								<span class="less">-</span>
 								<output data-index="2"></output>
 								<span class="more">+</span>
 							</div>
-
+							<hr/>
 							<div role="group">
 								<h3 class="startup">Startup 3</h3>
 								<span class="less">-</span>
@@ -148,14 +154,14 @@
 				</section>
 			</div>
 		</div>
-
-	<!-- loader -->
-		<div id="spinner">
-			<img src="assets/w.svg"/>
-			<img src="assets/a.svg"/>
-			<img src="assets/q.svg"/>
-		</div>
 	</main>
+
+	<!-- spinner -->
+	<div id="spinner" data-state="loading" data-animation="run">
+		<img src="assets/w.svg"/>
+		<img src="assets/a.svg"/>
+		<img src="assets/q.svg"/>
+	</div>
 
 <!-- scripts -->
 	<script type="text/javascript" src="lib/fastclick.min.js"></script>

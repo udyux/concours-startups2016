@@ -3,7 +3,7 @@
 #app {
 	size: 100%;
 	absolute: top left;
-	perspective: 150vw;
+	perspective: 100vh;
 }
 
 
@@ -95,6 +95,7 @@ section {
 
 	p {
 		ease: 450ms;
+		padding: 0 4vw;
 		opacity: 0;
 		transform: scale(1.5);
 		&:first-of-type,
@@ -104,27 +105,29 @@ section {
 		}
 
 		&[:state='done'] {
-			transform: scale(.5);
-			filter: blur(2px);
+			transform: scale(.8);
+			filter: blur(1px);
+			opacity: 1;
 		}
+
+		em {font-family: full}
 	}
 
 	h2 {text-transform: uppercase}
-	button {@extend %buttonBlue}
 }
+
+#intro button {@extend %buttonBlue}
 
 /* email
 -------------*/
 #email {
 	colors: darkblue white;
 
-	button {@extend %buttonBlue}
-
 	fieldset {
 		display: inline-block;
 		border: 1px solid blue;
 		border-radius: 3px;
-		box-shadow: 0px 4px 4px -3px grey.8;
+		box-shadow: 0px 4px 4px -3px grey.3;
 		overflow: hidden;
 		z-index: 0;
 
@@ -133,7 +136,9 @@ section {
 			display: block;
 			size: 290px 35px;
 			margin-top: 5px;
-			typeface: base 22px;
+			padding: 0 1em;
+			typeface: base 20px;
+			text-align: center;
 			colors: darkblue white;
 			z-index: 1;
 
@@ -144,20 +149,11 @@ section {
 				line-height: 40px;
 				absolute: top left;
 				typeface: thin 22px;
-				colors: white blue;
+				colors: blue white;
 				user-select: none;
 				white-space: nowrap;
 				text-transform: uppercase;
 				z-index: 3;
-
-				+span {
-					ease: all 250ms 50ms;
-					absolute: top 45% left 100%;
-					transform: translateX(-200%);
-					typeface: full 28px error.75;
-					user-select: none;
-					z-index: 2;
-				}
 			}
 
 			&:focus,
@@ -165,21 +161,23 @@ section {
 				margin-top: 25px;
 
 				+label {
+					colors: white blue;
 					line-height: 25px;
 					font-size: 18px;
-					box-shadow: 0px 4px 4px -3px grey.8;
 				}
 			}
 		}
 	}
 }
 
+#email button {@extend %buttonBlue}
+
 /* demo/form
 -------------*/
 #demo,
 #form {
 	hgroup {
-		size: 100% 55px;
+		size: 100% 95px;
 		absolute: top left;
 		padding: 10px 0;
 		bg-color: white;
@@ -190,21 +188,33 @@ section {
 
 	div[role='group'] {
 		flexbox: wrap push center center;
+		width: 250px;
+		margin: 15px 0;
 
-		h3 {
-			width: 100%;
-			margin-bottom: .75em;
-		}
+		h3 {width: 100%}
 
 		p,
-		output {typeface: thin 28px}
-		span {typeface: full 32px}
+		output {typeface: thin 24px}
+
+		span {
+			typeface: full 38px;
+			line-height: 35px;
+			user-select: none;
+		}
+	}
+
+	hr {
+		display: block;
+		size: 175px 1px;
+		margin: 0 auto;
+		bg-color: white;
 	}
 
 	footer {
 		size: 100% 55px;
 		absolute: bottom left;
 		flexbox: center center;
+		border-top: 1px solid blue;
 
 		label {
 			display: inline-block;
@@ -216,16 +226,61 @@ section {
 	}
 }
 
-#demo {colors: white blue}
 
+/* demo */
+#demo {
+	colors: white blue;
+
+	#demo-btn {
+		@extend %buttonWhite;
+		absolute: bottom 15% right 10%;
+	}
+
+	#demo-overlay {
+		ease: opacity 450ms 3250ms;
+		size: 100%;
+		absolute: top left;
+		padding: 40px 0 120px;
+		opacity: 0;
+		font-family: full;
+		flexbox: down spread center;
+		p:first-of-type {margin-bottom: -1em}
+	}
+
+	.demo {
+		z-index: 0;
+		&::after {
+			ease: opacity 450ms 2750ms;
+			content: '';
+			size: 100%;
+			absolute: top left;
+			bg-color: grey.8;
+			z-index: 1;
+			opacity: 0;
+		}
+
+		>* {z-index: 2}
+		&.underlay {
+			width: 100%;
+			height: calc(100% - 95px);
+			absolute: top 95px left;
+		}
+	}
+}
+
+#app[:view='demo'] .demo::after {opacity: 1}
+#app[:view='demo'] #demo-overlay {opacity: 1}
+
+
+/* form */
 #form {
-	perspective: 100vw;
+	perspective: 100vh;
 	bg-color: white;
 
 	form {
 		ease: 1100ms;
-		size: 100%;
-		padding: 55px 0;
+		width: 100%;
+		height: calc(100vh - 55px);
 		absolute: top left;
 		transform-style: preserve-3d;
 		transform-origin: 25% 50%;
@@ -233,6 +288,7 @@ section {
 		.category {
 			size: 100%;
 			absolute: top left;
+			padding-top: 95px;
 			flexbox: down spread center;
 			backface-visibility: hidden;
 			colors: white blue;
@@ -272,7 +328,8 @@ section {
 /* the spinner
 ---------------*/
 #spinner {
-	ease: opacity 425ms 1100ms;
+	transition: opacity 450ms easing,
+							left 0ms linear 450ms;
 	size: 100%;
 	absolute: top left -100vw;
 	bg-color: blue;
@@ -288,17 +345,16 @@ section {
 	}
 }
 
-#app[data-view='loading'] #spinner {
-	ease: opacity 425ms;
+#spinner[:state='loading'] {
 	left: 0;
 	opacity: 1;
 	pointer-events: auto;
+}
 
-	img {
-		&:first-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) infinite}
-		&:nth-child(2) {animation: flip-reverse 1500ms cubic-bezier(.4,.25,.3,1) 400ms infinite}
-		&:last-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) 750ms infinite}
-	}
+#spinner[:animation='run'] img {
+	&:first-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) infinite}
+	&:nth-child(2) {animation: flip-reverse 1500ms cubic-bezier(.4,.25,.3,1) 400ms infinite}
+	&:last-child {animation: flip 1500ms cubic-bezier(.4,.25,.3,1) 750ms infinite}
 }
 
 @keyframes flip {

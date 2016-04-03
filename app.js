@@ -36,6 +36,7 @@
 			update.output(canOutput,state.can);
 
 			update.view(state.view);
+			setTimeout(update.spinner,2400);
 		},
 
 		/* start a new session */
@@ -53,6 +54,7 @@
 			update.output(canOutput,state.can);
 
 			update.view('intro');
+			setTimeout(update.spinner,2400);
 		},
 
 		/* save session state object (as JSON) to localStorage */
@@ -87,6 +89,20 @@
 		/* update view output with new value */
 		output: function(nodes,val) {
 			for (var i = 0; i < nodes.length; i++) nodes[i].value = val[i];
+		},
+
+		/* toggle spinner */
+		spinner: function(show) {
+			var spinner = document.getElementById('spinner');
+			if (!show) {
+				spinner.dataset.state = '';
+				setTimeout(function() {
+					spinner.dataset.animation = '';
+				},450);
+			} else {
+				spinner.dataset.state = 'loading';
+				spinner.dataset.animation = 'run';
+			}
 		}
 	};
 
@@ -106,26 +122,34 @@
 
 		/* control intro item flow */
 		intro: function() {
+			if (!this.item) this.item = 1;
+			var i = this.item;
 			var items = document.getElementById('intro-items');
 			var p = items.querySelectorAll('p');
 
-			if (!this.item) this.item = 1;
+			if (i < p.length) {
+				p[i].dataset.state = 'visible';
+			} else {
+				update.view('demo');
+			}
 
-			if (this.item < p.length) p[this.item].dataset.state = 'visible';
-			else update.view('demo');
-
-			p[this.item-1].dataset.state = 'done';
+			p[i-1].dataset.state = 'done';
 			this.item++;
+		},
+
+		demo: function() {
+			update.view('email');
 		},
 
 		/* validate email */
 		validateEmail: function() {
-			if (! /[^\s@]+@[^\s@]+\.[^\s@]+/.test(this.value) ) {
+			var emailVal = document.getElementById('email-input').value;
+			if ( /[^\s@]+@[^\s@]+\.[^\s@]+/.test(emailVal) ) {
 				update.view('form');
-				update.state('email',this.value);
+				update.state('email',emailVal);
 			} else {
-				document.getElementById('email-error')
-				.dataset.state = 'error';
+				// document.getElementById('email-error')
+				// .dataset.state = 'error';
 			}
 		},
 
@@ -176,7 +200,7 @@
 				output.value = util.formatVal(currentVal+100000) + '$';
 				bank.value = util.formatVal(currentBank-100000) + '$';
 				changed = true;
-			} else if (currentVal >= 100000 && currentVal <= 500000 && currentBank >= 50000) {
+			} else if (currentVal >= 100000 && currentVal < 500000 && currentBank >= 50000) {
 				output.value = util.formatVal(currentVal+50000) + '$';
 				bank.value = util.formatVal(currentBank-50000) + '$';
 				changed = true;
@@ -265,6 +289,10 @@
 		// next button
 		document.getElementById('next')
 		.addEventListener('click',handlers.intro);
+
+		// demo button
+		document.getElementById('demo-btn')
+		.addEventListener('click',handlers.demo);
 
 		// validate email
 		document.getElementById('submit-email')
