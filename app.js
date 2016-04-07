@@ -323,6 +323,7 @@
 		});
 
 		// check if there's a session to restore
+		localStorage.clear();
 		if (session.exists()) session.restore();
 		else session.init();
 

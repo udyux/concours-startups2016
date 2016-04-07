@@ -38,14 +38,14 @@ body {
 	background-color: #302f36;
 	color: #0098b0;
 	font-family: 'TitilliumWeb-Light';
-	font-size: 1.125rem;
+	font-size: 1rem;
 }
 
-h1 {font-family: 'TitilliumWeb-Bold';font-size: 2.125rem}
+h1 {font-family: 'TitilliumWeb-Bold';font-size: 1.875rem}
 
-h2 {font-family: 'TitilliumWeb-Light';font-size: 1.875rem}
+h2 {font-family: 'TitilliumWeb-Light';font-size: 1.625rem}
 
-h3 {color: #0098b0;font-family: 'TitilliumWeb-Light';font-size: 1.375rem}
+h3 {color: #0098b0;font-family: 'TitilliumWeb-Light';font-size: 1.25rem}
 
 h4 {color: #04e0e2;font-family: 'TitilliumWeb-Bold';font-size: 1.125rem}
 
@@ -98,6 +98,7 @@ h5 {color: #04e0e2;font-family: 'TitilliumWeb-Bold';font-size: 1.0625rem}
 	left: 0;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 	-webkit-perspective: 100vh;
 	        perspective: 100vh;
 }
@@ -397,7 +398,7 @@ section#form {
   display: inline;
   color: #04e0e2;
   font-family: 'TitilliumWeb-Light';
-  font-size: 1.5rem;
+  font-size: 1.375rem;
 }
 
 #demo hgroup em, #form hgroup em {
@@ -443,7 +444,7 @@ section#form {
 
 #demo div[role='group'] p, #demo div[role='group'] output, #form div[role='group'] p, #form div[role='group'] output {
   font-family: 'TitilliumWeb-Bold';
-  font-size: 1.5rem
+  font-size: 1.375rem
 }
 
 #demo div[role='group'] span, #form div[role='group'] span {
