@@ -205,8 +205,8 @@ section#email {
 /* left */
 
 section#form {
-  -webkit-transform:  translateX(-50vw) rotateY(270deg);
-          transform:  translateX(-50vw) rotateY(270deg)
+  -webkit-transform:  translateX(-50vw) rotateY(-90deg);
+          transform:  translateX(-50vw) rotateY(-90deg)
 }
 
 /* intro
@@ -490,15 +490,15 @@ section#form {
           justify-content: space-around;
   width: 100%;
   height: 100%;
-  padding: 50px 0 20px;
+  padding: 50px 0;
   font-family: 'TitilliumWeb-Bold';
   opacity: 0;
   pointer-events: none;
   transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3000ms;
 }
 
-#demo #demo-overlay p:nth-last-child(n+2) {
-  margin-bottom: .75em
+#demo #demo-overlay p:last-child {
+  margin-top: 1.5em
 }
 
 #demo .demo {
@@ -591,8 +591,8 @@ section#form {
 }
 
 #form form[data-view='can'] {
-  -webkit-transform: rotateY(180deg) translateX(-50%);
-          transform: rotateY(180deg) translateX(-50%)
+  -webkit-transform: translateX(50%) rotateY(180deg);
+          transform: translateX(50%) rotateY(180deg)
 }
 
 /* the spinner

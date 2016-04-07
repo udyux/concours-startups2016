@@ -12,6 +12,9 @@
 (function app() {
 	'use strict';
 
+	// uncomment next line to remove persistent app state
+	localStorage.clear();
+
 	var app = document.getElementById('app');
 	var state = {};
 
@@ -323,7 +326,6 @@
 		});
 
 		// check if there's a session to restore
-		localStorage.clear();
 		if (session.exists()) session.restore();
 		else session.init();
 

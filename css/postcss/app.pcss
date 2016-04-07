@@ -54,7 +54,7 @@ section {
 	/* back */
 	&#email {transform: translateZ(-50vw) rotateY(180deg)}
 	/* left */
-	&#form {transform:  translateX(-50vw) rotateY(270deg)}
+	&#form {transform:  translateX(-50vw) rotateY(-90deg)}
 }
 
 
@@ -250,12 +250,12 @@ section {
 		ease: opacity 450ms 3000ms;
 		size: 100%;
 		absolute: top left;
-		padding: 50px 0 20px;
+		padding: 50px 0;
 		opacity: 0;
 		font-family: full;
 		flexbox: down spread center;
 		pointer-events: none;
-		p:nth-last-child(n+2) {margin-bottom: .75em}
+		p:last-child {margin-top: 1.5em}
 	}
 
 	.demo {
@@ -305,7 +305,7 @@ section {
 			&#can {transform: rotateY(180deg)}
 		}
 
-		&[:view='can'] {transform: rotateY(180deg) translateX(-50%)}
+		&[:view='can'] {transform: translateX(50%) rotateY(180deg)}
 	}
 }
 
