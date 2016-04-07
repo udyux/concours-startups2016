@@ -45,11 +45,13 @@ h1 {font-family: 'TitilliumWeb-Bold';font-size: 2.125rem}
 
 h2 {font-family: 'TitilliumWeb-Light';font-size: 1.875rem}
 
-h3 {color: #0098b0;font-family: 'TitilliumWeb-Bold';font-size: 1.375rem}
+h3 {color: #0098b0;font-family: 'TitilliumWeb-Light';font-size: 1.375rem}
 
-h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
+h4 {color: #04e0e2;font-family: 'TitilliumWeb-Bold';font-size: 1.125rem}
 
-#intro button, #email button, #demo-btn {
+h5 {color: #04e0e2;font-family: 'TitilliumWeb-Bold';font-size: 1.0625rem}
+
+#intro button, #email button {
 	padding: .75rem 2.5rem;
 	font-family: 'TitilliumWeb-Light';
 	font-size: 1.375rem;
@@ -57,7 +59,7 @@ h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
 	z-index: 0;
 }
 
-#intro button::after, #email button::after, #demo-btn::after {
+#intro button::after, #email button::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -68,25 +70,15 @@ h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
   border-radius: 3px;
   box-shadow: 0px 4px 4px -3px rgba(48, 47, 54, 0.8);
   content: '';
-  -webkit-transition: all 300ms cubic-bezier(.4,.25,.3,1.5);
   transition: all 300ms cubic-bezier(.4,.25,.3,1.5);
   z-index: -1;
 }
 
-#intro button:active::after, #email button:active::after, #demo-btn:active::after {
+#intro button:active::after, #email button:active::after {
   -webkit-transform: translate(-50%,-50%) scale(.85);
           transform: translate(-50%,-50%) scale(.85);
   box-shadow: none;
-  -webkit-transition: none;
   transition: none;
-}
-
-#demo-btn {
-	color: #04e0e2;
-}
-
-#demo-btn::after {
-  background-color: #fff
 }
 
 #intro button, #email button {
@@ -121,7 +113,6 @@ h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
 	height: 100%;
 	-webkit-transform-style: preserve-3d;
 	        transform-style: preserve-3d;
-	-webkit-transition: all 300ms cubic-bezier(.4,.25,.3,1);
 	transition: all 300ms cubic-bezier(.4,.25,.3,1);
 }
 
@@ -136,7 +127,6 @@ h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
 	height: 100%;
 	-webkit-transform-style: preserve-3d;
 	        transform-style: preserve-3d;
-	-webkit-transition: all 1100ms cubic-bezier(.4,.25,.3,1) 150ms;
 	transition: all 1100ms cubic-bezier(.4,.25,.3,1) 150ms;
 }
 
@@ -167,19 +157,15 @@ h4 {color: #04e0e2;font-family: 'TitilliumWeb-Thin';font-size: 1.25rem}
 -------------*/
 
 section {
-	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	position: absolute;
 	top: 0;
 	left: 0;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
 	-webkit-flex-direction: column;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
-	-webkit-box-align: center;
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
@@ -231,19 +217,15 @@ section#form {
 }
 
 #intro header, #intro article {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -253,7 +235,6 @@ section#form {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  -webkit-transition: all 650ms cubic-bezier(.4,.25,.3,1);
   transition: all 650ms cubic-bezier(.4,.25,.3,1);
 }
 
@@ -275,8 +256,7 @@ section#form {
           transform: scale(1);
   opacity: 1;
   pointer-events: auto;
-  -webkit-transition-delay: 600ms;
-          transition-delay: 600ms;
+  transition-delay: 600ms;
 }
 
 #intro svg {
@@ -289,7 +269,6 @@ section#form {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   opacity: 0;
-  -webkit-transition: all 450ms cubic-bezier(.4,.25,.3,1);
   transition: all 450ms cubic-bezier(.4,.25,.3,1);
 }
 
@@ -343,7 +322,6 @@ section#form {
   font-family: 'TitilliumWeb-Light';
   font-size: 1.25rem;
   text-align: center;
-  -webkit-transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   z-index: 1;
 }
@@ -360,12 +338,11 @@ section#form {
   width: 100%;
   background-color: #fff;
   color: #04e0e2;
-  font-family: 'TitilliumWeb-Thin';
+  font-family: 'TitilliumWeb-Light';
   font-size: 1.375rem;
   line-height: 2.5rem;
   text-transform: uppercase;
   white-space: nowrap;
-  -webkit-transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   transition: all 250ms cubic-bezier(.4,.25,.3,1) 50ms;
   z-index: 3;
 }
@@ -381,6 +358,23 @@ section#form {
   line-height: 1.5625rem;
 }
 
+#email #email-error {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: -15vh 0;
+  color: #ff5871;
+  font-family: 'TitilliumWeb-Bold';
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: all 250ms cubic-bezier(.4,.25,.3,1);
+}
+
+#email #email-error[data-state='visible'] {
+  opacity: 1;
+}
+
 /* demo/form
 -------------*/
 
@@ -390,18 +384,40 @@ section#form {
   left: 0;
   width: 100%;
   height: 95px;
-  padding: 10px 0;
+  padding: 10px 0 10px 15px;
   background-color: #fff;
 }
 
+#demo hgroup h4, #demo hgroup h5, #form hgroup h4, #form hgroup h5 {
+  color: #0098b0;
+  text-align: left;
+}
+
 #demo hgroup span, #demo hgroup output, #form hgroup span, #form hgroup output {
+  display: inline;
   color: #04e0e2;
   font-family: 'TitilliumWeb-Light';
-  font-size: 1.625rem
+  font-size: 1.5rem;
+}
+
+#demo hgroup em, #form hgroup em {
+  color: #04e0e2;
+  font-family: 'TitilliumWeb-Light';
+  font-size: 1.2em
+}
+
+#demo hgroup svg, #form hgroup svg {
+  fill: #04e0e2;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  -webkit-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
 }
 
 #demo div[role='group'], #form div[role='group'] {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -411,11 +427,9 @@ section#form {
   -webkit-align-content: center;
       -ms-flex-line-pack: center;
           align-content: center;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -428,7 +442,7 @@ section#form {
 }
 
 #demo div[role='group'] p, #demo div[role='group'] output, #form div[role='group'] p, #form div[role='group'] output {
-  font-family: 'TitilliumWeb-Thin';
+  font-family: 'TitilliumWeb-Bold';
   font-size: 1.5rem
 }
 
@@ -450,42 +464,6 @@ section#form {
   background-color: #fff;
 }
 
-#demo footer, #form footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  height: 55px;
-  border-top: 1px solid #04e0e2;
-}
-
-#demo footer label, #form footer label {
-  display: inline-block;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background-color: #fff;
-  color: #04e0e2;
-  line-height: 3.4375rem;
-}
-
-#demo footer label:last-child, #form footer label:last-child {
-  border-left: 1px solid #04e0e2
-}
-
 /* demo */
 
 #demo {
@@ -493,26 +471,16 @@ section#form {
 	color: #fff;
 }
 
-#demo #demo-btn {
-  position: absolute;
-  right: 10%;
-  bottom: 15%;
-}
-
 #demo #demo-overlay {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -521,15 +489,15 @@ section#form {
           justify-content: space-around;
   width: 100%;
   height: 100%;
-  padding: 40px 0 120px;
+  padding: 50px 0 20px;
   font-family: 'TitilliumWeb-Bold';
   opacity: 0;
-  -webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3250ms;
-  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3250ms;
+  pointer-events: none;
+  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 3000ms;
 }
 
-#demo #demo-overlay p:first-of-type {
-  margin-bottom: -1em
+#demo #demo-overlay p:nth-last-child(n+2) {
+  margin-bottom: .75em
 }
 
 #demo .demo {
@@ -545,8 +513,7 @@ section#form {
   background-color: rgba(48, 47, 54, 0.8);
   content: '';
   opacity: 0;
-  -webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 2750ms;
-  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 2750ms;
+  transition: opacity 450ms cubic-bezier(.4,.25,.3,1) 2500ms;
   z-index: 1;
 }
 
@@ -556,10 +523,10 @@ section#form {
 
 #demo .demo.underlay {
   position: absolute;
-  top: 95px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 95px);
+  height: 100%;
 }
 
 #app[data-view='demo'] .demo::after {opacity: 1}
@@ -579,29 +546,24 @@ section#form {
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 55px);
+  height: 100%;
   -webkit-transform-origin: 25% 50%;
           transform-origin: 25% 50%;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transition: all 1100ms cubic-bezier(.4,.25,.3,1);
   transition: all 1100ms cubic-bezier(.4,.25,.3,1);
 }
 
 #form form .category {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
@@ -627,59 +589,24 @@ section#form {
           transform: rotateY(180deg)
 }
 
-#form input[type='radio'] {
-  display: none
-}
-
-#form input[name='flip'] +footer label::after {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  width: 55px;
-  height: 3px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border-radius: 3px;
-  background-color: #04e0e2;
-  content: '';
-  opacity: 0;
-  -webkit-transition: all 250ms cubic-bezier(.4,.25,.3,1);
-  transition: all 250ms cubic-bezier(.4,.25,.3,1);
-}
-
-#form input[name='flip'] +footer label:last-of-type::after {
-  opacity: 1
-}
-
-#form input[name='flip']:checked +form {
+#form form[data-view='can'] {
   -webkit-transform: rotateY(180deg) translateX(-50%);
           transform: rotateY(180deg) translateX(-50%)
-}
-
-#form input[name='flip']:checked +footer label:first-of-type::after {
-  opacity: 1
-}
-
-#form input[name='flip']:checked +footer label:last-of-type::after {
-  opacity: 0
 }
 
 /* the spinner
 ---------------*/
 
 #spinner {
-	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
 	position: absolute;
 	top: 0;
 	left: -100vw;
-	-webkit-box-align: center;
 	-webkit-align-items: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-	-webkit-box-pack: center;
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
@@ -690,8 +617,6 @@ section#form {
 	-webkit-perspective: 300px;
 	        perspective: 300px;
 	pointer-events: none;
-	-webkit-transition: opacity 450ms cubic-bezier(.4,.25,.3,1),
-							left 0ms linear 450ms;
 	transition: opacity 450ms cubic-bezier(.4,.25,.3,1),
 							left 0ms linear 450ms;
 }

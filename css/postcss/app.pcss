@@ -148,7 +148,7 @@ section {
 				width: 100%;
 				line-height: 40px;
 				absolute: top left;
-				typeface: thin 22px;
+				typeface: base 22px;
 				colors: blue white;
 				user-select: none;
 				white-space: nowrap;
@@ -168,6 +168,17 @@ section {
 			}
 		}
 	}
+
+	#email-error {
+		ease: 250ms;
+		margin: -15vh 0;
+		typeface: full 20px error;
+		opacity: 0;
+		user-select: none;
+		&[:state='visible'] {
+			opacity: 1;
+		}
+	}
 }
 
 #email button {@extend %buttonBlue}
@@ -179,11 +190,29 @@ section {
 	hgroup {
 		size: 100% 95px;
 		absolute: top left;
-		padding: 10px 0;
+		padding: 10px 0 10px 15px;
 		bg-color: white;
 
+		h4,
+		h5 {
+			text-align: left;
+			color: darkblue;
+		}
+
 		span,
-		output {typeface: base 26px blue}
+		output {
+			display: inline;
+			typeface: base 24px blue;
+		}
+
+		em {typeface: base 1.2em blue}
+
+		svg {
+			size: 45px;
+			absolute: top 50% right;
+			transform: translate(-50%,-50%);
+			fill: blue;
+		}
 	}
 
 	div[role='group'] {
@@ -194,7 +223,7 @@ section {
 		h3 {width: 100%}
 
 		p,
-		output {typeface: thin 24px}
+		output {typeface: full 24px}
 
 		span {
 			typeface: full 38px;
@@ -209,21 +238,6 @@ section {
 		margin: 0 auto;
 		bg-color: white;
 	}
-
-	footer {
-		size: 100% 55px;
-		absolute: bottom left;
-		flexbox: center center;
-		border-top: 1px solid blue;
-
-		label {
-			display: inline-block;
-			flex: 1;
-			line-height: 55px;
-			colors: blue white;
-			&:last-child {border-left: 1px solid blue}
-		}
-	}
 }
 
 
@@ -231,26 +245,22 @@ section {
 #demo {
 	colors: white blue;
 
-	#demo-btn {
-		@extend %buttonWhite;
-		absolute: bottom 15% right 10%;
-	}
-
 	#demo-overlay {
-		ease: opacity 450ms 3250ms;
+		ease: opacity 450ms 3000ms;
 		size: 100%;
 		absolute: top left;
-		padding: 40px 0 120px;
+		padding: 50px 0 20px;
 		opacity: 0;
 		font-family: full;
 		flexbox: down spread center;
-		p:first-of-type {margin-bottom: -1em}
+		pointer-events: none;
+		p:nth-last-child(n+2) {margin-bottom: .75em}
 	}
 
 	.demo {
 		z-index: 0;
 		&::after {
-			ease: opacity 450ms 2750ms;
+			ease: opacity 450ms 2500ms;
 			content: '';
 			size: 100%;
 			absolute: top left;
@@ -261,9 +271,8 @@ section {
 
 		>* {z-index: 2}
 		&.underlay {
-			width: 100%;
-			height: calc(100% - 95px);
-			absolute: top 95px left;
+			size: 100%;
+			absolute: top left;
 		}
 	}
 }
@@ -279,8 +288,7 @@ section {
 
 	form {
 		ease: 1100ms;
-		width: 100%;
-		height: calc(100vh - 55px);
+		size: 100%;
 		absolute: top left;
 		transform-style: preserve-3d;
 		transform-origin: 25% 50%;
@@ -295,32 +303,8 @@ section {
 			&#int {transform: rotateY(0deg)}
 			&#can {transform: rotateY(180deg)}
 		}
-	}
 
-	input[type='radio'] {display: none}
-	input[name='flip'] {
-		+footer label {
-			&::after {
-				content: '';
-				ease: 250ms;
-				size: 55px 3px;
-				absolute: top 80% left 50%;
-				transform: translateX(-50%);
-				bg-color: blue;
-				border-radius: 3px;
-				opacity: 0;
-			}
-
-			&:last-of-type::after {opacity: 1}
-		}
-
-		&:checked {
-			+form {transform: rotateY(180deg) translateX(-50%)}
-			+footer label {
-				&:first-of-type::after {opacity: 1}
-				&:last-of-type::after {opacity: 0}
-			}
-		}
+		&[:view='can'] {transform: rotateY(180deg) translateX(-50%)}
 	}
 }
 

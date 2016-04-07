@@ -1,0 +1,509 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"demo",
+				"demo-overlay"
+			],
+			[
+				"tr",
+				"translateX"
+			],
+			[
+				"incre",
+				"increaseInvestment"
+			],
+			[
+				"decrease",
+				"decreaseInvestment"
+			],
+			[
+				"curre",
+				"currentBank"
+			],
+			[
+				"curr",
+				"currentBank"
+			],
+			[
+				"view",
+				"viewState"
+			],
+			[
+				"getElemen",
+				"getElementById(id)	Element"
+			],
+			[
+				"fun",
+				"function with name"
+			],
+			[
+				"getElem",
+				"getElementById(id)	Element"
+			],
+			[
+				"sty",
+				"stylesheet_directory"
+			],
+			[
+				"styl",
+				"style	Tag"
+			],
+			[
+				"conten",
+				"contentEditable"
+			],
+			[
+				"get",
+				"get	$.get()"
+			],
+			[
+				"light",
+				"lightgrey"
+			],
+			[
+				"style",
+				"styles"
+			],
+			[
+				"dark",
+				"darkgrey"
+			],
+			[
+				"mid",
+				"mid-dark"
+			],
+			[
+				"pri",
+				"primary-light"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"point",
+				"pointer-events"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"bg-",
+				"bg-color"
+			],
+			[
+				"text-",
+				"text-transform"
+			],
+			[
+				"label",
+				"label	<label>"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "pack",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"packi",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"HTMLBeautify"
+			],
+			[
+				"post",
+				"Run PostCSS Sorting"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packr",
+				"Package Control: Remove Package"
+			],
+			[
+				"css",
+				"CssOrder: Set Cssorder Config"
+			],
+			[
+				"markd",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"json",
+				"Pretty JSON: Validate"
+			],
+			[
+				"tint",
+				"Tint: New Terminal in Tab"
+			]
+		],
+		"width": 385.0
+	},
+	"console":
+	{
+		"height": 272.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/AMPPS/www/startups",
+		"/Applications/AMPPS/www/startups/css",
+		"/Applications/AMPPS/www/startups/css/postcss",
+		"/Applications/AMPPS/www/startups/css/postcss/config"
+	],
+	"file_history":
+	[
+		"/Applications/AMPPS/www/startups/css/postcss/extends.pcss",
+		"/Applications/AMPPS/www/startups/css/postcss/settings.pcss",
+		"/Applications/AMPPS/www/startups/css/postcss/config/helpers.pcss",
+		"/Applications/AMPPS/www/startups/css/postcss/app.pcss",
+		"/Applications/AMPPS/www/startups/app.js",
+		"/Applications/AMPPS/www/startups/index.html",
+		"/Applications/AMPPS/www/startups/css/app.css",
+		"/Applications/AMPPS/www/forum-jeunesse/style.css",
+		"/Applications/AMPPS/www/forum-jeunesse/nav.css",
+		"/Applications/AMPPS/www/forum-jeunesse/header.css",
+		"/Applications/AMPPS/www/forum-jeunesse/milieu.css",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/index.html",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/app.js",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/gulpfile.js",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/config/source.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/config/helpers.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/fonts.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/main.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/settings.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/css/postcss/extends.pcss",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/package.json",
+		"/Applications/AMPPS/www/startups/css/postcss/config/source.pcss",
+		"/Applications/AMPPS/www/startups/css/postcss/fonts.pcss",
+		"/Applications/AMPPS/www/startups/css/postcss/config/config.pcss",
+		"/Applications/AMPPS/www/startups/gulpfile.js",
+		"/Applications/AMPPS/www/startups/css/reset.css",
+		"/Applications/AMPPS/www/startups/package.json",
+		"/Users/nicolasudy/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Applications/AMPPS/www/startups/assets/q.svg",
+		"/Applications/AMPPS/www/startups/assets/a.svg",
+		"/Applications/AMPPS/www/startups/assets/w.svg",
+		"/Applications/AMPPS/www/startups/tmp.js",
+		"/Applications/AMPPS/www/startups/css/postcss/mixins.pcss",
+		"/Applications/AMPPS/www/editor/dev/js/scripts.js",
+		"/Applications/AMPPS/www/startups/views/main.html",
+		"/Applications/AMPPS/www/startups/views/email.html",
+		"/Applications/AMPPS/www/startups/views/landing.html",
+		"/Applications/AMPPS/www/startups/js/app.js",
+		"/Applications/AMPPS/www/startups/js/scripts.js",
+		"/Applications/AMPPS/www/waq-form/build/css/all.css",
+		"/Users/nicolasudy/Dev/ProductionKits/Template/js/scripts.js",
+		"/Applications/AMPPS/www/finna/css/postcss/settings.pcss",
+		"/Applications/AMPPS/www/finna/css/postcss/config/config.pcss",
+		"/Applications/AMPPS/www/gmw/dev/index.html",
+		"/Applications/AMPPS/www/gmw/dev/css/parts/reset.css",
+		"/Applications/AMPPS/www/gmw/dev/css/main.css",
+		"/Applications/AMPPS/www/gmw/dev/css/parts/always.css",
+		"/Applications/AMPPS/www/gmw/dev/css/postcss/config.css",
+		"/Applications/AMPPS/www/sandbox/dev/css/parts/reset.css",
+		"/Applications/AMPPS/www/gmw/dev/css/settings.css",
+		"/Users/nicolasudy/Dev/WebDK/dev/css/parts/reset.css",
+		"/Users/nicolasudy/Dev/WebDK/dev/css/parts/always.css",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/gulpfile.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/template-parts/content-front-page.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/source.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_variables.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/settings.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/footer.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/nav.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/global.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/front-page.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/scripts/scripts.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/footer.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/nav.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/front-page.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/scripts/plugins/parallaxable.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_forms.scss",
+		"/Applications/AMPPS/www/qcnum/dev/index.html",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/scripts/plugins/detach.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/header.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_always.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/scripts/plugins/prevent.js",
+		"/Applications/AMPPS/www/editor/dev/css/settings.css",
+		"/Applications/AMPPS/www/editor/edit/editor.css",
+		"/Applications/AMPPS/www/editor/edit/index.html",
+		"/Applications/AMPPS/www/editor/edit/editor.js",
+		"/Applications/AMPPS/www/editor/dev/css/main.css",
+		"/Users/nicolasudy/Library/Application Support/Sublime Text 3/Packages/CSSOrder/cssorder.sublime-settings",
+		"/Applications/AMPPS/www/editor/dev/index.html",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/functions.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/piklist/parts/settings/global_nav.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/package.json",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/postcss/config.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/front-page.css",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/main.css",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/_main.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/_nav.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_footer.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/postcss/always.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/header-front-page.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_typography.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_reset.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles/sass/_site.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/source.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/main.pcss.css",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/style.css",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/settings.css",
+		"/Users/nicolasudy/Downloads/settings.pcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_reset.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/postcss/always.postcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/page.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/template-parts/content-page.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/header-landing.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/template-parts/content.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/index.php",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_navigation.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/_variables.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_forms.scss",
+		"/Applications/AMPPS/www/editor/gulpfile.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/modules/_accessibility.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_typography.scss",
+		"/Users/nicolasudy/Dev/Tasks/gulpfile.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_site.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_mixins.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_media.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/sass/_widgets.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/css/postcss/config.postcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/sass/_variables.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/sass/_reset.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/sass/source.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/sass/_typography.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/postcss/parts/config.postcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/postcss/settings.postcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/js/scripts.js",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/sass/_variables-site.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/dev/styles.postcss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/sass/parts/_variables-site.scss",
+		"/Applications/AMPPS/www/wordpress/wp-content/themes/qcnum/postcss/settings.postcss"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 106.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"checkmark",
+			"//",
+			"class=\"demo\"",
+			"perspective",
+			"email",
+			"class=\"less\"",
+			":",
+			"landing",
+			"ui",
+			"for",
+			"<input",
+			"><",
+			"investment",
+			"app",
+			"update.view",
+			"update.page",
+			"container",
+			"request",
+			"qcnum_global",
+			":after",
+			"overflow:",
+			"overflow: hidden",
+			"$color__border-all",
+			"main",
+			"site-thin",
+			"inject",
+			"icon=",
+			"wp_enqueue_script",
+			"wp_head",
+			"dd",
+			"button",
+			"fieldset",
+			"q",
+			"z-index",
+			"h3",
+			"h2",
+			"shuttle",
+			"malibu",
+			"jungle",
+			"zircon",
+			"';",
+			"href=\"#\"",
+			"data-rel",
+			"target",
+			"indent",
+			"class=\"arrow\"",
+			"<button",
+			"button",
+			"uppercase",
+			"h2",
+			"class=\"title",
+			"<button",
+			"norwester",
+			"value=\"",
+			"|",
+			"<h5",
+			"/>",
+			"input",
+			"fieldset",
+			"id=\"",
+			"indent",
+			"sublime",
+			"<path",
+			"/>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "startups.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 206.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -63,7 +63,7 @@ var plumberErrorHandler = {
 			propsort({
 				order: 'smacss'
 			}),
-			autoprefixer
+			autoprefixer({browsers: ['last 2 versions']})
 		];
 
 		return gulp.src('./css/postcss/config/source.pcss')

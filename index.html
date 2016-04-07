@@ -51,11 +51,13 @@
 
 			<!-- demo -->
 				<section id="demo">
-					<hgroup class="demo">
-						<h4>il vous reste</h4>
-						<span>550,000$</span>
-					</hgroup>
 					<div class="underlay demo"></div>
+					<hgroup class="demo">
+						<h5>catégorie&nbsp;&nbsp;<em>Canadien</em></h5>
+						<h4>il vous reste&nbsp;&nbsp;<span>550,000$</span></h4>
+						<svg id="demo-btn" class="icon"><use xlink:href="assets/icons.svg#check"></use></svg>
+					</hgroup>
+
 					<div role="group">
 						<h3>Swipe City</h3>
 						<span>-</span>
@@ -63,20 +65,23 @@
 						<span>+</span>
 					</div>
 
-					<footer>
-						<label>international</label>
-						<label>canadien</label>
-					</footer>
 					<div id="demo-overlay">
-						<p>Vous trouverez ci-haut le solde restant du 1,000,000$ dont vous disposez.<br/><br/>Au centre, vous pouvez augmenter<br/>ou diminuer votre investissement.</p>
-						<p>Vous pouvez investir jusqu'à 500,000$ par startup.</p>
-						<button id="demo-btn">ok</button>
+						<div>
+							<p>Vous trouverez ci-haut le solde restant<br/>du 1,000,000$ dont vous disposez.</p>
+							<p>Tappez le crochet pour indiquer<br/>que vous avez terminé cette catégorie.</p>
+						</div>
+
+						<div>
+							<p>Au centre, vous pouvez augmenter<br/>ou diminuer votre investissement.</p>
+							<p>Vous pouvez investir jusqu'à<br/>500,000$ par startup.</p>
+						</div>
 					</div>
 				</section>
 
 			<!-- email -->
 				<section id="email">
 					<h3>Entrez votre courriel<br/>pour continuer</h3>
+					<h4 id="email-error">Veuillez entrer une addresse valide.</h4>
 					<fieldset>
 						<input type="text" name="email" id="email-input" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" required/>
 						<label for="email-input">courriel</label>
@@ -86,19 +91,13 @@
 
 			<!-- form -->
 				<section id="form">
-					<input type="radio" name="flip" id="_int" checked/>
-					<footer>
-						<label for="_int">international</label>
-						<label for="_can">canadien</label>
-					</footer>
-
-					<input type="radio" name="flip" id="_can"/>
 					<form>
 					<!-- international startups -->
 						<div class="category" id="int">
 							<hgroup>
-								<h4>il vous reste</h4>
-								<output id="int-bank"></output>
+								<h5>catégorie&nbsp;&nbsp;<em>International</em></h5>
+								<h4>il vous reste&nbsp;&nbsp;<output id="int-bank"></output></h4>
+								<svg id="_int" class="icon"><use xlink:href="assets/icons.svg#check"></use></svg>
 							</hgroup>
 
 							<div role="group">
@@ -125,8 +124,9 @@
 					<!-- canadian startups -->
 						<div class="category" id="can">
 							<hgroup>
-								<h4>il vous reste</h4>
-								<output id="can-bank"></output>
+								<h5>catégorie&nbsp;&nbsp;<em>Canadien</em></h5>
+								<h4>il vous reste&nbsp;&nbsp;<output id="can-bank"></output></h4>
+								<svg id="_can" class="icon"><use xlink:href="assets/icons.svg#check"></use></svg>
 							</hgroup>
 
 							<div role="group">

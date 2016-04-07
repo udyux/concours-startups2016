@@ -148,8 +148,8 @@
 				update.view('form');
 				update.state('email',emailVal);
 			} else {
-				// document.getElementById('email-error')
-				// .dataset.state = 'error';
+				document.getElementById('email-error')
+				.dataset.state = 'visible';
 			}
 		},
 
@@ -215,6 +215,13 @@
 				stateMirror[index] = output.value;
 				update.state(category,stateMirror);
 			}
+		},
+
+		intSubmit: function() {
+			var card = document.getElementById('form')
+			.querySelectorAll('form');
+
+			card[0].dataset.view = 'can';
 		},
 
 		/* AJAX entry data to google sheet */
@@ -297,6 +304,14 @@
 		// validate email
 		document.getElementById('submit-email')
 		.addEventListener('click',handlers.validateEmail);
+
+		// submit int
+		document.getElementById('_int')
+		.addEventListener('click',handlers.intSubmit);
+
+		// send entry
+		document.getElementById('_can')
+		.addEventListener('click',handlers.sendEntry);
 
 		// attach handlers to less/more buttons
 		[].forEach.call(document.querySelectorAll('.less'), function(node) {
