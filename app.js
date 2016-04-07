@@ -13,7 +13,7 @@
 	'use strict';
 
 	// uncomment next line to remove persistent app state
-	localStorage.clear();
+	// localStorage.clear();
 
 	var app = document.getElementById('app');
 	var state = {};
@@ -40,6 +40,13 @@
 
 			update.view(state.view);
 			setTimeout(update.spinner,2400);
+
+			if (state.form) {
+				var card = document.getElementById('form')
+				.querySelectorAll('form');
+
+				card[0].dataset.view = 'can';
+			}
 		},
 
 		/* start a new session */
@@ -225,13 +232,14 @@
 			.querySelectorAll('form');
 
 			card[0].dataset.view = 'can';
+			update.state('form','can');
 		},
 
 		/* AJAX entry data to google sheet */
 		sendEntry: function() {
 			var entryData = util.buildEntryData();
 			var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'action url here', true);
+			xhr.open('POST', 'https://docs.google.com/a/quebecnumerique.com/forms/d/1rvagXdc4RTlTBScv_KPjwI6HwjealhAf1gFO5E-7OK0/formResponse', true);
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 			xhr.send(entryData);
 		}
