@@ -242,6 +242,8 @@
 			xhr.open('POST', 'https://docs.google.com/a/quebecnumerique.com/forms/d/1rvagXdc4RTlTBScv_KPjwI6HwjealhAf1gFO5E-7OK0/formResponse', true);
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
 			xhr.send(entryData);
+			document.getElementById('complete')
+			.dataset.state = 'visible';
 		}
 	};
 

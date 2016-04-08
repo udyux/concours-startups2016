@@ -309,6 +309,22 @@ section {
 	}
 }
 
+/* complete
+------------*/
+#complete {
+	ease: opacity 325ms;
+	size: 100%;
+	absolute: top left -100%;
+	flexbox: center;
+	text-align: center;
+	bg-color: white;
+	opacity: 0;
+	&[:state='visible'] {
+		left: 0;
+		opacity: 1;
+	}
+}
+
 
 /* the spinner
 ---------------*/
