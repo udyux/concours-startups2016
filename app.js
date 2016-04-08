@@ -13,7 +13,7 @@
 	'use strict';
 
 	// uncomment next line to remove persistent app state
-	localStorage.clear();
+	// localStorage.clear();
 
 	var app = document.getElementById('app');
 	var state = {};
@@ -321,8 +321,8 @@
 		.addEventListener('click',handlers.intSubmit);
 
 		// send entry
-		// document.getElementById('_can')
-		// .addEventListener('click',handlers.sendEntry);
+		document.getElementById('_can')
+		.addEventListener('click',handlers.sendEntry);
 
 		// attach handlers to less/more buttons
 		[].forEach.call(document.querySelectorAll('.less'), function(node) {
