@@ -41,11 +41,18 @@
 			update.view(state.view);
 			setTimeout(update.spinner,2400);
 
+			if (state.email) document.getElementById('email-input').value = state.email;
+
 			if (state.form) {
 				var card = document.getElementById('form')
 				.querySelectorAll('form');
 
 				card[0].dataset.view = 'can';
+			}
+
+			if (state.complete) {
+				document.getElementById('complete')
+				.dataset.state = 'visible';
 			}
 		},
 
@@ -244,6 +251,8 @@
 			xhr.send(entryData);
 			document.getElementById('complete')
 			.dataset.state = 'visible';
+
+			update.state('complete',true);
 		}
 	};
 
